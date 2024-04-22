@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block title %}page{% endblock %} </title>
+    <title>{% block title %}Titre par défaut{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -23,32 +23,21 @@
                         <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('about')}}">A propos</a>
+                        <a class="nav-link" href="{{url_for('about')}}">À propos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('services')}}">Nos services</a>
                     </li>
-
-                    {% if session %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{url_for('employes')}}" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Employé
+                        <a class="nav-link dropdown-toggle" href="{{url_for('evenements')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          evenements
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{url_for('employes')}}">Lister</a></li>
-                            <li><a class="dropdown-item" href="{{url_for('add_employe')}}">Ajouter</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('evenements')}}">Liste des evenements</a></li>
+                          <li><a class="dropdown-item" href="#">ajouter evenement</a></li>
+                          <li><a class="dropdown-item" href="#">modifier evenement</a></li>
                         </ul>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('login')}}">Se connecter</a>
-                    </li>
-                    {% if session %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('logout')}}">Se deconnecter</a>
-                    </li>
-                    {% endif %}
+                      </li>
+                    
+
 
                 </ul>
             </div>
@@ -56,7 +45,9 @@
     </nav>
     <hr>
     <div class="container">
-        {% block content %}page{% endblock %}
+        {% block content %}
+        <p>Contenu par défaut.</p>
+        {% endblock %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

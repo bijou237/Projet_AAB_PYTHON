@@ -1,43 +1,33 @@
 {% extends 'default.html' %}
 
-{% block title %} Reservez un evenement {% endblock %}
+{% block title %}Nos evenements{% endblock %}
 
 {% block content %}
 
-<h1> Veillez Remplir les champs pour Reservez un evenement !</h1>
-<div class="container">
-    {% if message=='error' %}
-    <p class="alert alert-danger"> SVP Veillez saisir tous les champs !</p>
-    {% elif message=='failure' %}
-    <p class="alert alert-warning">
-        Une erreur est survenue lors de la reservation d'un evenement, veillez vous rassurer que l'email que vous avez
-        saisie n'est pas attribué à un autre utilisateur.Si l'erreur persiste veillez contacter l'administrateur s'il vous plait !</p>
-    {% elif message=='sucess' %}
-    <p class="alert alert-sucess">L'Utilisateur {{utilisateur.Nom_Util}} a été ajouté avec sucès!</p>
-    {% endif %}
-</div>
-<form action="{{url_for('reservation_place')}}" method="post" class="container">
-    <div class="form-floating mb-3">
-        <input name="Nom_Event" type="text" class="form-control" id="Nom_Event" placeholder="">
-        <label for="Nom_Event">Nom</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input name="Date_Event" type="text" class="form-control" id="Date_Event" placeholder="">
-        <label for="Date_Event">Prenom</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input name="Heure_Event" type="text" class="form-control" id="Heure_Event">
-        <label for="Heure_Event">Heure</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input name="Prix_Event" type="text" class="form-control" id="Prix_Event" placeholder="">
-        <label for="Prix_Event">Prix</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input name="NombrePlaces_Event" type="text" class="form-control" id="NombrePlaces_Event" placeholder="NombrePlaces_Event">
-        <label for="NombrePlaces_Event">Nombres de places</label>
-    </div>
-    <input type="submit" value="Reservez un evenement !!!" class="btn btn-success">
-</form>
+<h1>Ce que nous vous proposons !</h1>
 
-{% endblock %}
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Cinema</li>
+    <li class="list-group-item">Montreal</li>
+    <li class="list-group-item">15:00</li>
+    <li class="list-group-item">100</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item">Diner</li>
+    <li class="list-group-item">Saint-Jerome</li>
+    <li class="list-group-item">12:00</li>
+    <li class="list-group-item">80</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+
+  {% endblock %}
