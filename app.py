@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for,redirect,session
-from reservations.reservation import Reservation
 from reservations.reservation_dao import ReservationDao
 
 app= Flask(__name__)
