@@ -6,28 +6,26 @@
 
 <div class="container">
   <h1 class="mt-5">Bienvenue dans l'espace de réservation de votre Film !</h1>
-  <form action="contenar" class="mt-5">
+  <form method="POST" action="{{ url_for('ajouter_reservation') }}" class="mt-5">
       <div class="mb-3">
           <label for="floatingSelect" class="form-label">Sélectionnez votre événement</label>
-          <select class="form-select" id="floatingSelect" aria-label="Sélectionnez votre événement">
-              <option selected>Selectionnez Votre Films</option>
-              <option value="1">AQUAMAN 2</option>
-              <option value="2">AMAZONES</option>
-              <option value="3">SPIDER MAN2</option>
-              <option value="4">REVOLUTION</option>
+          <select class="form-select" id="film" aria-label="Sélectionnez votre événement" name='film'>
+              <option value="" disabled selected>Selectionnez Votre Films</option>
+              <option value="AQUAMAN 2">AQUAMAN 2</option>
+              <option value="AMAZONES">AMAZONES</option>
+              <option value="SPIDER MAN2">SPIDER MAN2</option>
+              <option value="REVOLUTION">REVOLUTION</option>
           </select>
       </div>
       <div class="mb-3">
           <label for="floatingTextarea" class="form-label">Entrez votre Nom</label>
-          <input type="text" class="form-control" id="floatingTextarea" placeholder="Entrez votre Nom">
+          <input type="text" class="form-control" id="nom_util" placeholder="Entrez votre Nom" name= "nom_util">
       </div>
       <div class="mb-3">
           <label for="floatingTextarea2" class="form-label">Nombre de places à réserver</label>
-          <input type="text" class="form-control" id="floatingTextarea2" placeholder="Nombre de places à réserver">
+          <input type="text" class="form-control" id="place" placeholder="Nombre de places à réserver" name = "place">
       </div>
-      <form method="POST" action="{{ url_for('add_reservation') }}">
       <button type="submit" class="btn btn-primary">Réserver</button>
-    </form> 
   </form>
 </div>
 

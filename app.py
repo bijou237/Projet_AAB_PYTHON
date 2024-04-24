@@ -34,26 +34,25 @@ def formulaire_Diner():
 def formulaire_Con():
     return render_template("formulaire_con.html")
 
-@app.route("/add_reservation", methods=['POST', 'GET'])
-def add_reservation():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    req = request.form 
-    print(req)
-    message= None
-    employe= None
-    print("Methode HTTP utilisee :", request.method)
-    if request.method == "POST":
-        nom = req['nom']
-        prenom = req['prenom']
-        matricule = req['matricule']
-        fonction = req['fonction']
-        departement = req['departement']
-    if nom =='' or prenom =='' or matricule =='' or fonction =='' or departement =='':
-            message="error"
-    else:
-            employe = employe(nom, prenom, matricule, fonction, departement)
-            #print(employe.nom, employe.prenom, employe.matricule, employe.fonction, employe.departement)
-            message = ajou
-            print(message)
-return render_template("add_employe.html", message=message, employe=employe)
+
+@app.route("/ajouter_reservation", methods=['POST', 'GET'])
+def ajouter_reservation():
+        message = None
+        employe = None
+        req = request.form
+        print(req)
+        message = None
+        employe = None
+        print("Methode.utilisee:" , request.method)
+        if request.method == "POST": 
+            nom_event = req['film']
+            nom_util = req['nom_util']
+            placeD = req['place']
+            if nom_event == 'Selectionnez Votre Films' or nom_util == '' or placeD == '':
+                message = "error"
+            else:
+                employe = employe(nom_event, nom_util, placeD)
+                ajouter = ReservationDao()
+                message = ajouter.ajouter_reservation(employe)
+                print(message)
+        return render_template("form.html", message=message, employe=employe)
