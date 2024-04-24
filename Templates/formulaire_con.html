@@ -1,0 +1,34 @@
+{% extends 'default.html' %}
+
+{% block title %}A propos{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="mt-5">Bienvenue dans l'espace de réservation de votre Concert !</h1>
+  <form action="contenar" class="mt-5">
+      <div class="mb-3">
+          <label for="floatingSelect" class="form-label">Sélectionnez votre événement</label>
+          <select class="form-select" id="floatingSelect" aria-label="Sélectionnez votre événement">
+              <option selected>Selectionnez Votre Concert</option>
+              <option value="1">Celine Dion</option>
+              <option value="2">Drake</option>
+              <option value="3">Lady Ponce</option>
+              <option value="4">Fally Ipupa</option>
+          </select>
+      </div>
+      <div class="mb-3">
+          <label for="floatingTextarea" class="form-label">Entrez votre Nom</label>
+          <input type="text" class="form-control" id="floatingTextarea" placeholder="Entrez votre Nom">
+      </div>
+      <div class="mb-3">
+          <label for="floatingTextarea2" class="form-label">Nombre de places à réserver</label>
+          <input type="text" class="form-control" id="floatingTextarea2" placeholder="Nombre de places à réserver">
+      </div>
+      <form method="POST" action="{{ url_for('add_reservation') }}">
+      <button type="submit" class="btn btn-primary">Réserver</button>
+    </form> 
+  </form>
+</div>
+
+  {% endblock %}

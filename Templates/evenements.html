@@ -5,23 +5,21 @@
 {% block content %}
 
 <h1>Veillez choisir un evenement en cliquant dessus!</h1>
-<a href="formulaires.html" id="formulaire"></a>
-<h3><form>
-    <input type="submit" value="Cinema" >
-    <input type="submit" value="Films">
-    <input type="submit" value="Diner">
-    <input type="submit" value="Conferences">
-    <input type="submit" value="Concerts">
-    <input type="submit" value="Class">
-    <input type="submit" value="Musique">
-    <input type="submit" value="Jazz">
-    <input type="submit" value="Camps d'été">
-    <input type="submit" value="Pique-nique">
-
-
-   
+<h1>
+  <div style="display: flex; justify-content: space-between;">
+    <form method="GET" action="{{ url_for('formulaire') }}">
+      <input type="submit" name="evenement" value="Cinéma">
+    </form>
+    <form method="GET" action="{{ url_for('formulaire_Diner') }}">
+      <input type="submit" name="evenement" value="Dîner">
+    </form>
+    <form method="GET" action="{{ url_for('formulaire_Con') }}">
+      <input type="submit" name="evenement" value="Concert">
+    </form>
+  </div>
+</h1>
  <img src="https://cdn.futura-sciences.com/cdn-cgi/image/width=1920,quality=60,format=auto/sources/samsung-galaxy-s23-reconditionne.jpg" alt=""height="auto"width=100%>
-</form></h3>
+</form>
  
 
   {% endblock %}
