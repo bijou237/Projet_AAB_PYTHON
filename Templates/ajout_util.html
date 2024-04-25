@@ -1,0 +1,42 @@
+{% extends 'default.html' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1 class="mt-5">Bienvenue dans l'espace d'enregistrement !</h1>
+    <form method="POST" action="{{ url_for('ajouter_reservation') }}" class="mt-5">
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label"> Nom</label>
+            <input type="text" class="form-control" id="Nom" placeholder="Nom d'utilisateur" name = "Nom">  
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea" class="form-label"> Prenom</label>
+            <input type="text" class="form-control" id="Prenom" placeholder="Entrez votre Prenom" name= "Prenom">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label"> age</label>
+            <input type="text" class="form-control" id="age" placeholder="Entrez votre age" name = "age">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label"> Email</label>
+            <input type="text" class="form-control" id="Email" placeholder="Entrez votre Email" name = "Email">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label"> Password</label>
+            <input type="Password" class="form-control" id="Password" placeholder="Entrez votre mot de passe" name = "Password">
+        </div>
+        <label for="floatingSelect" class="form-label">option</label>
+          <select class="form-select" id="role" aria-label="" name='role'>
+              <option value="" disabled selected>Selectionnez votre option</option>
+              <option value="utilisateur">Utilisateur</option>
+              <option value="admin">Administrateur</option>
+          </select>
+              
+        <button type="submit" class="btn btn-primary">enregistrement</button>
+    </form>
+  </div>
+{% endblock %}
+

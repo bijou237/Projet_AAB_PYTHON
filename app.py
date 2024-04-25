@@ -37,8 +37,6 @@ def formulaire_Con():
 
 @app.route("/ajouter_reservation", methods=['POST', 'GET'])
 def ajouter_reservation():
-        message = None
-        employe = None
         req = request.form
         print(req)
         message = None
@@ -51,8 +49,20 @@ def ajouter_reservation():
             if nom_event == 'Selectionnez Votre Films' or nom_util == '' or placeD == '':
                 message = "error"
             else:
-                employe = employe(nom_event, nom_util, placeD)
+                #employe = employe(nom_event, nom_util, placeD)
                 ajouter = ReservationDao()
-                message = ajouter.ajouter_reservation(employe)
+                message = ajouter.ajouter_reservation(nom_event, nom_util, placeD)
                 print(message)
         return render_template("form.html", message=message, employe=employe)
+    
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route('/enregistrement')
+def enregistrement():
+    return render_template("ajout_util.html")
+
+@app.route('/paiement')
+def paiement():
+    return render_template("paie.html")

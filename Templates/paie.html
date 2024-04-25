@@ -1,0 +1,32 @@
+{% extends 'default.html' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <h1 class="mt-5">faites votre Paiement !</h1>
+    <form method="POST" action="{{ url_for('paiement') }}" class="mt-5">
+        <div class="mb-3">
+            <label for="floatingTextarea" class="form-label">Nom et prenom sur la carte</label>
+            <input type="text" class="form-control" id="nom" placeholder="Nom inscrit sur la carte" name= "nom">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea" class="form-label">N° de la carte</label>
+            <input type="number" class="form-control" id="Numero" placeholder="Entrez votre N° de carte" name= "Numero">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label">date d'expiration</label>
+            <input type="text" class="form-control" id="date" placeholder="entrez la date d'expiration" name = "date">
+        </div>
+        <div class="mb-3">
+            <label for="floatingTextarea2" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="CVV" placeholder="entrez le N° CVV de la carte " name = "CVV">
+        </div>
+        <button type="submit" class="btn btn-primary">Payer</button>
+    </form>
+  </div>
+{% endblock %}
+
