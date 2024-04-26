@@ -6,8 +6,18 @@
 
 
 <div class="container">
+    {% if message=='error' %}
+  <p class="alert alert-danger"> SVP veuillez saisir tous les champs !</p>
+  {% elif message=='failure' %}
+  <p class="alert alert-warning">
+    Une erreur est survenue lors de en registrez ,
+    Si l'erreur persiste, merci de contacter l'administrateur.
+  </p>
+  {% elif message=='succes' %}
+  <p class="alert alert-success"> votre enregistrement a été effectué avec success .</p>
+  {% endif %}
     <h1 class="mt-5">Bienvenue dans l'espace d'enregistrement !</h1>
-    <form method="POST" action="{{ url_for('ajouter_reservation') }}" class="mt-5">
+    <form method="POST" action="{{ url_for('ajouter_utilisateur') }}" class="mt-5">
         <div class="mb-3">
             <label for="floatingTextarea2" class="form-label"> Nom</label>
             <input type="text" class="form-control" id="Nom" placeholder="Nom d'utilisateur" name = "Nom">  

@@ -5,11 +5,23 @@
 {% block content %}
 
 <div class="container">
+  {% if message=='error' %}
+  <p class="alert alert-danger"> SVP veuillez saisir tous les champs !</p>
+  {% elif message=='failure' %}
+  <p class="alert alert-warning">
+    Une erreur est survenue lors de en registrez ,
+    Si l'erreur persiste, merci de contacter l'administrateur.
+  </p>
+  {% elif message=='succes' %}
+  <p class="alert alert-success"> votre reservation a ete effectuer avec success pour confirmer votre reservation cliquer sur le bouton payer ci-dessous<form action="{{ url_for('payer_evenement') }}" method="POST">
+  <button type="submit" class="btn btn-primary" >Payer</button>
+  </form>.</p>
+  {% endif %}
   <h1 class="mt-5">Bienvenue dans l'espace de réservation de votre Diner !</h1>
-  <form action="contenar" class="mt-5">
+  <form action="{{ url_for('ajouter_reservation_diner') }}" method="POST">
       <div class="mb-3">
           <label for="floatingSelect" class="form-label">Sélectionnez votre Diner</label>
-          <select class="form-select" id="floatingSelect" aria-label="Sélectionnez votre événement">
+          <select class="form-select" id="film" aria-label="Sélectionnez votre événement" name="film" >
               <option selected>Sélectionnez votre Diner</option>
               <option value="1">Aux Chandelles</option>
               <option value="2">Amoureux</option>
@@ -19,15 +31,13 @@
       </div>
       <div class="mb-3">
           <label for="floatingTextarea" class="form-label">Entrez votre Nom</label>
-          <input type="text" class="form-control" id="floatingTextarea" placeholder="Entrez votre Nom">
+          <input type="text" class="form-control" id="nom_util" placeholder="Entrez votre Nom" name="nom_util">
       </div>
       <div class="mb-3">
           <label for="floatingTextarea2" class="form-label">Nombre de places à réserver</label>
-          <input type="text" class="form-control" id="floatingTextarea2" placeholder="Nombre de places à réserver">
+          <input type="text" class="form-control" id="place" placeholder="Nombre de places à réserver" name="place">
       </div>
-      <form method="POST" action="{{ url_for('add_reservation') }}">
       <button type="submit" class="btn btn-primary">Réserver</button>
-    </form> 
   </form>
 </div>
 

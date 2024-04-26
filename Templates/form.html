@@ -5,6 +5,18 @@
 {% block content %}
 
 <div class="container">
+  {% if message=='error' %}
+  <p class="alert alert-danger"> SVP veuillez saisir tous les champs !</p>
+  {% elif message=='failure' %}
+  <p class="alert alert-warning">
+    Une erreur est survenue lors de en registrez ,
+    Si l'erreur persiste, merci de contacter l'administrateur.
+  </p>
+  {% elif message=='succes' %}
+  <p class="alert alert-success"> votre reservation a ete effectuer avec success pour confirmer votre reservation cliquer sur le bouton payer ci-dessous<form action="{{ url_for('payer_evenement') }}" method="POST">
+  <button type="submit" class="btn btn-primary" >Payer</button>
+  </form>.</p>
+  {% endif %}
   <h1 class="mt-5">Bienvenue dans l'espace de réservation de votre Film !</h1>
   <form method="POST" action="{{ url_for('ajouter_reservation') }}" class="mt-5">
       <div class="mb-3">

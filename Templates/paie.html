@@ -7,6 +7,16 @@
 
 
 <div class="container">
+    {% if message=='error' %}
+    <p class="alert alert-danger"> SVP veuillez saisir tous les champs !</p>
+    {% elif message=='failure' %}
+    <p class="alert alert-warning">
+      Une erreur est survenue lors de en registrez ,
+      Si l'erreur persiste, merci de contacter l'administrateur.
+    </p>
+    {% elif message=='succes' %}
+    <p class="alert alert-success"> votre paiement a été effectué avec success .</p>
+    {% endif %}
     <h1 class="mt-5">faites votre Paiement !</h1>
     <form method="POST" action="{{ url_for('paiement') }}" class="mt-5">
         <div class="mb-3">
@@ -18,7 +28,7 @@
             <input type="number" class="form-control" id="Numero" placeholder="Entrez votre N° de carte" name= "Numero">
         </div>
         <div class="mb-3">
-            <label for="floatingTextarea2" class="form-label">date d'expiration</label>
+            <label for="floatingTextarea2" class="form-label">date expiration</label>
             <input type="text" class="form-control" id="date" placeholder="entrez la date d'expiration" name = "date">
         </div>
         <div class="mb-3">
