@@ -131,8 +131,20 @@ def payer_evenement():
                 message = "succes"
         return render_template("paie.html", message=message, add=add)
     
-@app.route('/login')
+@app.route("/login", methods=['POST','GET'])
 def login():
+    message = None
+    if request.method == "POST":
+        email=request.form.get()
+        password = request.form.get()
+        if not email or not password:
+              message='error'
+        else:
+            user = UtilisateurDao()
+            utilisateur = user.get_one(email, password)
+            message ='success'
+
+          
     return render_template("login.html")
 
 @app.route('/enregistrement')

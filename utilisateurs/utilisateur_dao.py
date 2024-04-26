@@ -61,15 +61,20 @@ class UtilisateurDao:
         except Exception as e:
             sms = f"Une erreur s'est produite lors de l'affichage des informations de la personne : {e}"
         return sms
-        """
-            if utilisateur:
-                print(utilisateur)  
-            else:
-                print(f"Aucun utilisateur avec le nom {nom} trouvé.")
-            """
-            #except Exception as e:
-            #print("Erreur lors de l'affichage de l'utilisateur !", e)
-
+    
+    @classmethod
+    def get_one(cls, email, password):
+            sql="SELECT * FROM utilisateur WHERE Email_util=%s and Password_util=%s"
+            try:
+                UtilisateurDao.cursor.execute(sql, (email, password))
+                user= UtilisateurDao.cursor.fetchone()
+                message ='success'
+            except Exception as error:
+                message='failure'
+                user =()
+            return (message, user)
+            
+           
 
     
 
